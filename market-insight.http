@@ -1,0 +1,24 @@
+
+@ExportStatistics_HostAddress = https://localhost:7116/api
+
+GET {{ExportStatistics_HostAddress}}/market-insight/export-demand/12099160
+Accept: application/json
+####export product
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$top=-1
+
+###by productid and countyid 
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=productId eq 8 and countryId eq 2&$top=10&$skip=0
+
+###by productid ,countryid and hscode
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=productId eq 8 and countryId eq 2 and hscode eq '22087011'&$top=10&$skip=0
+###by hscode 
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=hscode eq '22087011'&$top=10&$skip=0
+###by categoryid 
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=categoryId eq 2 and CountryName eq 'China' and productId eq 55 and state eq 'Tamil Nadu'&$top=10&$skip=0
+
+###by contains() 
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=contains(state, 'tam')&$top=5&$skip=5000
+###contains and productId
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=contains(state,'tam') and productId eq 55&$top=5&$skip=0
+###and and or 
+GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=(contains(state,'tam') or countryId eq 4) and productId eq 55

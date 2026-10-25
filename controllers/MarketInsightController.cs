@@ -102,4 +102,18 @@ public class MarketInsightApicontroller : ControllerBase
 
         return Ok(pagedResults);
     }
+    [HttpGet("countries")]
+    public async Task<IActionResult> GetCountries()
+    {
+        var countries = await _dbContext.Countries.Where(c => c.IsDeleted == false)
+        .OrderBy(c => c.Name).Select(c => c.Name).ToListAsync();
+        return Ok(countries);
+    }
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetCatogries()
+    {
+        var categories = await _dbContext.Categories.Where(c => c.IsDeleted == false)
+        .OrderBy(c => c.Name).Select(c => c.Name).ToListAsync();
+        return Ok(categories);
+    }
 }

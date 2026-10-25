@@ -22,3 +22,7 @@ GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=contains(st
 GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=contains(state,'tam') and productId eq 55&$top=5&$skip=0
 ###and and or 
 GET {{ExportStatistics_HostAddress}}/market-insight/products?$filter=(contains(state,'tam') or countryId eq 4) and productId eq 55
+###and and or 
+GET {{ExportStatistics_HostAddress}}/market-insight/countries
+####get categories
+GET {{ExportStatistics_HostAddress}}/market-insight/categories

@@ -10,7 +10,8 @@ public class ExportProductDataMapper : Profile
         .ForMember(dest => dest.HsCode, opt => opt.MapFrom(src => src.Product.HsCode))
         .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Product.Category.Name))
         .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.Product.CategoryId))
-        .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.Name));
+        .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.Name))
+         .ForMember(dest => dest.ProductValue, opt => opt.MapFrom(src => src.Value));
         CreateMap<ExportData, ExportStatistic>();
     }
 }
